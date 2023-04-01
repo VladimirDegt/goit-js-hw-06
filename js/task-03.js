@@ -13,23 +13,6 @@ const images = [
   },
 ];
 
-// -------------------Варіант олдскул---------------------------
-
-// const arrayImagesEl = images.map(({ url, alt }) => {
-//   const itemEl = document.createElement('li')
-//   const imageEl = document.createElement('img');
-//   imageEl.src = url;
-//   imageEl.alt = alt;
-//   imageEl.width = 400;
-//   itemEl.append(imageEl)
-
-//   return itemEl;
-// }); 
-
-// document.querySelector('.gallery').append(...arrayImagesEl);
-
-// -------------------END варіант олдскул---------------------------
-
 const arrayImagesEl = images.map(({ url, alt }) => {
   const itemEl = document.createElement('li');
   itemEl.insertAdjacentHTML("beforeend", `<img src="${url}" alt="${alt}">`);
