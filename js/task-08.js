@@ -7,15 +7,23 @@ const onFormSubmit = (event) => {
 
   event.preventDefault();
 
-  if (!element.email.value || !element.password.value) {
-    alert('Будь ласка заповніть усі поля!');
+  if (!element.email.value.trim() || !element.password.value.trim()) {
+    if (document.querySelector('form p')) {
+      document.querySelector('form p').remove();
+    }
+    document.querySelector('form').insertAdjacentHTML('afterbegin', '<p style="color: red">Будь ласка заповніть усі поля!</p>');
   } else {
-    alert('Дані завантажені!');
+    if (document.querySelector('form p')) {
+      document.querySelector('form p').remove();
+    }
+    document.querySelector('form').insertAdjacentHTML('afterbegin', '<p style="color: blue">Дані відправлені</p>');
 
+    const dataObject = {};
     const formData = new FormData(event.currentTarget);
     formData.forEach ( (value, name) => {
-      console.log(`${name}: ${value}`);
+      dataObject[name] = value.trim();
     });
+    console.log(dataObject);
 
     event.currentTarget.reset();
   }

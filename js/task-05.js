@@ -4,8 +4,8 @@ const refs = {
 };
 
 const onInput = (event) => {
-    refs.input.value 
-  ? refs.outputTextEl.textContent = event.currentTarget.value 
+    refs.input.value.trim()  
+  ? refs.outputTextEl.textContent = event.currentTarget.value.trim()
   : refs.outputTextEl.textContent = 'Anonymous';
 };
 

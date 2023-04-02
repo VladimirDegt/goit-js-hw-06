@@ -3,11 +3,11 @@ const refs = {
 };
 
 const onInputBlur = (event) => {
-  if (event.currentTarget.value.length === Number(refs.input.dataset.length)) {
-    refs.input.classList.add('validation-input', 'valid');
+  if (event.currentTarget.value.trim().length === Number(refs.input.dataset.length)) {
+    refs.input.classList.add('valid');
     refs.input.classList.remove('invalid');
   } else {
-    refs.input.classList.add('validation-input', 'invalid');
+    refs.input.classList.add('invalid');
     refs.input.classList.remove('valid');
   }
 };
